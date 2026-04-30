@@ -1,4 +1,3 @@
-import { clear } from 'react-native/types_generated/Libraries/LogBox/Data/LogBoxData';
 import { create } from 'zustand';
 
 export const useAuthStore = create((set) => ({
