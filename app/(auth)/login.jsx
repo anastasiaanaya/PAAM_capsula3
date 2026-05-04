@@ -1,4 +1,6 @@
 import { useState } from 'react';
+import {Link} from 'expo-router';
+import { useNavigation } from '@react-navigation/native';
 import {
   View,
   Text,
@@ -74,6 +76,11 @@ export default function LoginScreen() {
             : <Text style={styles.buttonText}>Entrar</Text>
           }
         </TouchableOpacity>
+
+        <Link href="/(auth)/register" style={{ marginTop: 16, textAlign: 'center', color: '#4f46e5' }}>
+          <Text>No tens compte? Registra't</Text>
+        </Link>
+        
       </View>
     </KeyboardAvoidingView>
   );
