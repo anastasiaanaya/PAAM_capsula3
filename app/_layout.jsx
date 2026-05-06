@@ -1,9 +1,10 @@
 import { useEffect, useState } from 'react';
 import { Stack, useRouter, useSegments } from 'expo-router';
 import { supabase } from '../lib/supabase';
+import { useAuthStore } from '../context/useAuthStore';
 
 export default function RootLayout() {
-    const [session, setSession] = useState(undefined); // undefined = encara no sabem
+    const { session, setAuth } = useAuthStore();
 
     const router = useRouter();
     const segments = useSegments();
@@ -11,12 +12,12 @@ export default function RootLayout() {
     useEffect(() => {
         // comprovem sessió inicial
         supabase.auth.getSession().then(({ data: { session } }) => {
-            setSession(session);
+            setAuth(session);
         });
 
         // escoltem canvis de login/logout
         const { data: { subscription } } = supabase.auth.onAuthStateChange((event, session) => {
-            setSession(session);
+            setAuth(session);
         });
 
         return () => subscription.unsubscribe();
