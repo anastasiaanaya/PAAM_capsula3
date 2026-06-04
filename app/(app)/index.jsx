@@ -12,6 +12,7 @@ import {
 } from 'react-native';
 import { useAuthStore } from '../../context/useAuthStore';
 import { supabase } from '../../lib/supabase';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 
 export default function ChatScreen() {
@@ -22,8 +23,7 @@ export default function ChatScreen() {
   // per poder fer scroll programàticament
     const flatListRef = useRef(null);
   
-
-     useEffect(() => {
+    useEffect(() => {
     // càrrega inicial de missatges
     const fetchMessages = async () => {
       const { data, error } = await supabase
@@ -127,6 +127,7 @@ export default function ChatScreen() {
   }
 
   return (
+    <SafeAreaView style={{ flex: 1, backgroundColor: '#fff' }} edges={['top']}>
     <KeyboardAvoidingView
       style={styles.container}
       behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
@@ -169,6 +170,7 @@ export default function ChatScreen() {
         </TouchableOpacity>
       </View>
     </KeyboardAvoidingView>
+    </SafeAreaView>
   );
 }
 

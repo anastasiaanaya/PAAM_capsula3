@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { Stack, useRouter, useSegments } from 'expo-router';
 import { supabase } from '../lib/supabase';
 import { useAuthStore } from '../context/useAuthStore';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 export default function RootLayout() {
     const { session, setAuth } = useAuthStore();
@@ -34,10 +35,10 @@ export default function RootLayout() {
         }
     }, [session, segments]);
 
-    return (
-        <Stack screenOptions={{ headerShown: false }}>
-            <Stack.Screen name="(auth)" />
-            <Stack.Screen name="(app)" />
-        </Stack>
+    return ( 
+    <SafeAreaProvider>
+        <Stack screenOptions={{ headerShown: false }}></Stack>      
+    </SafeAreaProvider>
+       
     );
 }
