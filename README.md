@@ -11,9 +11,9 @@ Aplicació mòbil de xat en temps real desenvolupada amb **React Native (Expo)**
 |-------|----------|-----|
 | ![Login][screenshot-login] | ![Registre][screenshot-register] | ![Xat][screenshot-chat] |
 
-[screenshot-login]: ./screenshots/login.png
-[screenshot-register]: ./screenshots/register.png
-[screenshot-chat]: ./screenshots/chat.png
+[screenshot-login]: ./screenshots/login.jpg
+[screenshot-register]: ./screenshots/register.jpg
+[screenshot-chat]: ./screenshots/chat.jpg
 
 
 ---
